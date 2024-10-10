@@ -9,6 +9,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    
 
   web:
     build: .
@@ -18,6 +19,8 @@ services:
       - "5000:5000"
     depends_on:
       - mongo
+    env_file:
+      - .env
 
 volumes:
   mongo-data:
